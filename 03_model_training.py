@@ -35,6 +35,10 @@ tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
 print(f"TF-IDF feature extraction completed. Number of features: {X_train_tfidf.shape[1]}")
+
+# Save the TF-IDF vectorizer
+joblib.dump(tfidf_vectorizer, 'tfidf_vectorizer.pkl')
+print("TF-IDF vectorizer saved as 'tfidf_vectorizer.pkl'.")
 print("\n")
 
 # Store model performance for comparison
@@ -99,3 +103,6 @@ else:
 
 joblib.dump(best_model, model_output_path)
 print(f"Best model ({best_model_name}) with accuracy {best_accuracy:.4f} saved to {model_output_path}")
+# Also save the vectorizer
+joblib.dump(tfidf_vectorizer, 'tfidf_vectorizer.pkl')
+print("TF-IDF vectorizer saved to 'tfidf_vectorizer.pkl'")
