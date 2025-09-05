@@ -20,3 +20,8 @@ print("\n")
 # Show the count of unique values in the 'subject' column
 print("Count of unique values in the 'subject' column:")
 print(df['subject'].nunique())
+print("\n")
+
+# Show the distribution of unique values in the 'subject' column
+print("Distribution of unique values in the 'subject' column:")
+print(df['subject'].value_counts())
